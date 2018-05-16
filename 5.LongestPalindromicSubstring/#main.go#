@@ -2,18 +2,20 @@ package main
 
 import (
 	"fmt"
-
-
 )
 
 func main() {
 
-	fmt.Println("l::::%",longestPalindrome("abbcccccbb"))
+	fmt.Println("l::::%", longestPalindrome("abbcccccbb"))
+	fmt.Println("l::::%", longestPalindrome("qwerabbxcxcbb"))
+	fmt.Println("l::::%", longestPalindrome("abasfdbccbb"))
+	fmt.Println("l::::%", longestPalindrome("abbccsafbb"))
+	fmt.Println("l::::%", longestPalindrome("abbccafdbb"))
 
-	fmt.Println("l::::%",longestPalindrome("abasfdbccbb"))
-	fmt.Println("l::::%",longestPalindrome("abbccsafbb"))
-	fmt.Println("l::::%",longestPalindrome("abbccafdbb"))
+}
 
+func lp2(s string) string {
+ 
 }
 
 func longestPalindrome(s string) string {
@@ -24,10 +26,10 @@ func longestPalindrome(s string) string {
 	singleLast := false
 	for {
 		if left > right {
-			break;
+			break
 		}
 		if left == right {
-			rst = append(rst,s[left])
+			rst = append(rst, s[left])
 			singleLast = true
 			break
 		} else if s[left] == s[right] {
@@ -47,15 +49,15 @@ func longestPalindrome(s string) string {
 
 	if singleLast {
 		rv := reverse(rst)[1:]
-		return string(append(rst,rv...))
+		return string(append(rst, rv...))
 	} else {
 		return string(append(rst, reverse(rst)...))
 	}
 }
 
-func reverse(sl []byte) []byte{
-	ret := make([]byte,len(sl))
-	for i,c := range sl {
+func reverse(sl []byte) []byte {
+	ret := make([]byte, len(sl))
+	for i, c := range sl {
 		ret[len(sl)-i-1] = c
 	}
 	return ret
